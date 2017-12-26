@@ -1,0 +1,29 @@
+{{yield}}
+<h2>{{title}}</h2>
+
+<ul class="{{colorName}}">
+  {{#each people as |person|}}
+    <li {{action "showPerson" person}}>{{person}}</li>
+  {{/each}}
+</ul>
+
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Add Person</h4>
+    <form>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Name</label>
+        {{input id="newPerson" value=personName}}
+      </div>
+      <button id="sbmt" name="submit" {{action "addPerson"}}>Add Person</button>
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">List Color</h4>
+    <h6 class="card-subtitle mb-2 text-muted">(red, green, blue)</h6>
+    {{input value=colorName key-press="updateColor"}}
+  </div>
+</div>
